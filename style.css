@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f9f7f2;
+  color: #222;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #0b0f1a;
+  color: #eaeaf0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tabs .active {
+  background: #4f6cff;
+  color: white;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+body.dark .card {
+  background: #151a2e;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  background: #f0ede4;
+  padding: 12px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1.5px solid #d6d2c4;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: #1c2140;
+  color: white;
+  border-color: #2f355e;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #4f6cff;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete {
+  background: #ff4f4f;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 30px;
+  border-radius: 22px;
+  text-align: center;
+  background: linear-gradient(135deg,#636e72,#b2bec3);
+}
+
+.result-box.good {
+  background: linear-gradient(135deg,#00b894,#55efc4);
+}
+
+.result-box.neutral {
+  background: linear-gradient(135deg,#fdcb6e,#e17055);
+}
+
+.result-box.bad {
+  background: linear-gradient(135deg,#d63031,#ff7675);
+}
+
+.result-box .label {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: rgba(0,0,0,0.65);
+}
+
+.result-box .value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+}
+
+body.dark .result-box .label {
+  color: rgba(255,255,255,0.9);
+}

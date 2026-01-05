@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GPA Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GPA Calculator</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-  <header>
+  <div class="top-bar">
     <h1>GPA Calculator</h1>
     <button id="themeToggle">☀️ Light</button>
-  </header>
+  </div>
 
-  <div class="tabs">
+  <div class="mode-switch">
     <button id="tgpaTab" class="active">TGPA / SGPA</button>
     <button id="cgpaTab">CGPA</button>
   </div>
 
   <!-- TGPA -->
-  <section id="tgpaSection" class="card">
+  <section class="card" id="tgpaSection">
     <h2>TGPA / SGPA Calculator</h2>
 
-    <table id="subjectTable">
+    <table id="subTable">
       <tr>
         <th>#</th>
         <th>Subject (optional)</th>
@@ -35,9 +35,9 @@
     </table>
 
     <div class="actions">
-      <button id="addSubject">Add Subject</button>
-      <button id="calculateTGPA">Calculate TGPA</button>
-      <button id="pushToCGPA">Add TGPA → CGPA</button>
+      <button id="addSub">Add Subject</button>
+      <button id="calcTGPA">Calculate TGPA</button>
+      <button id="addTGPA">Add TGPA → CGPA</button>
     </div>
 
     <div class="result-box" id="tgpaBox">
@@ -47,10 +47,10 @@
   </section>
 
   <!-- CGPA -->
-  <section id="cgpaSection" class="card hidden">
+  <section class="card hidden" id="cgpaSection">
     <h2>CGPA Calculator</h2>
 
-    <table id="semesterTable">
+    <table id="semTable">
       <tr>
         <th>Semester Name</th>
         <th>Total Credits</th>
@@ -60,8 +60,8 @@
     </table>
 
     <div class="actions">
-      <button id="addSemester">Add Semester</button>
-      <button id="calculateCGPA">Calculate CGPA</button>
+      <button id="addSem">Add Semester</button>
+      <button id="calcCGPA">Calculate CGPA</button>
     </div>
 
     <div class="result-box cgpa" id="cgpaBox">
@@ -70,29 +70,7 @@
     </div>
   </section>
 
-  <!-- FEEDBACK -->
-  <section class="card">
-    <h2>Send Feedback</h2>
-
-    <form id="feedbackForm">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" rows="4" placeholder="Your feedback" required></textarea>
-      <button type="submit">Send Feedback</button>
-    </form>
-
-    <p id="feedbackStatus"></p>
-  </section>
-
 </div>
-
-<!-- EMAILJS (ORDER MATTERS) -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function () {
-    emailjs.init("6Jo5o3M-jmKz4mSBy");
-  })();
-</script>
 
 <script src="script.js"></script>
 </body>

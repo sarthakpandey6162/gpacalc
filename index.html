@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GPA Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>GPA Calculator</h1>
+    <button id="themeToggle">☀️ Light</button>
+  </header>
+
+  <div class="tabs">
+    <button id="tgpaTab" class="active">TGPA / SGPA</button>
+    <button id="cgpaTab">CGPA</button>
+    <button id="statsTab">📊 Stats</button>
+    <button id="targetTab">🎯 Target</button>
+    <button id="gradeTab">📋 Grades</button>
+    <button id="historyTab">📜 History</button>
+  </div>
+
+  <!-- TGPA -->
+  <section id="tgpaSection" class="card">
+    <div class="section-header">
+      <h2>TGPA / SGPA Calculator</h2>
+      <div class="search-bar">
+        <input type="text" id="subjectSearch" placeholder="🔍 Search subject...">
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table id="subjectTable">
+        <tr>
+          <th>#</th>
+          <th>Subject (optional)</th>
+          <th>Credits</th>
+          <th>Marks (0-100)</th>
+          <th>Grade</th>
+          <th>Delete</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button id="addSubject">Add Subject</button>
+      <button id="calculateTGPA">Calculate TGPA</button>
+      <button id="pushToCGPA">Add TGPA → CGPA</button>
+      <button id="clearTGPA" class="danger">Clear All</button>
+    </div>
+
+    <div class="result-box" id="tgpaBox">
+      <span class="label">TGPA</span>
+      <span class="value" id="tgpaValue">0.00</span>
+    </div>
+  </section>
+
+  <!-- CGPA -->
+  <section id="cgpaSection" class="card hidden">
+    <h2>CGPA Calculator</h2>
+
+    <div class="table-wrap">
+      <table id="semesterTable">
+        <tr>
+          <th>Semester Name</th>
+          <th>Total Credits</th>
+          <th>SGPA</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button id="addSemester">Add Semester</button>
+      <button id="calculateCGPA">Calculate CGPA</button>
+      <button id="clearCGPA" class="danger">Clear All</button>
+      <button id="exportCGPA">📥 Export</button>
+    </div>
+
+    <div class="result-box cgpa" id="cgpaBox">
+      <span class="label">CGPA</span>
+      <span class="value" id="cgpaValue">0.00</span>
+    </div>
+  </section>
+
+  <!-- STATISTICS -->
+  <section id="statsSection" class="card hidden">
+    <h2>📊 Statistics Dashboard</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Average GPA</span>
+        <span class="stat-value" id="avgGPA">0.00</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Highest SGPA</span>
+        <span class="stat-value" id="highestSGPA">0.00</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Lowest SGPA</span>
+        <span class="stat-value" id="lowestSGPA">0.00</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total Credits</span>
+        <span class="stat-value" id="totalCredits">0</span>
+      </div>
+    </div>
+    <div class="progress-container">
+      <label>Progress to 8.0 CGPA:</label>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span id="progressText">0%</span>
+    </div>
+  </section>
+
+  <!-- TARGET GPA CALCULATOR -->
+  <section id="targetSection" class="card hidden">
+    <h2>🎯 Target GPA Calculator</h2>
+    <div class="target-form">
+      <div class="input-group">
+        <label>Target CGPA:</label>
+        <input type="number" id="targetGPA" placeholder="8.0" min="0" max="10" step="0.01">
+      </div>
+      <div class="input-group">
+        <label>Credits in Next Semester:</label>
+        <input type="number" id="nextSemesterCredits" placeholder="20" min="1">
+      </div>
+      <button id="calculateTarget">Calculate Required SGPA</button>
+    </div>
+    <div id="targetResult" class="result-box hidden">
+      <span class="label">Required SGPA</span>
+      <span class="value" id="targetSGPA">-</span>
+    </div>
+  </section>
+
+  <!-- GRADE SCALE -->
+  <section id="gradeSection" class="card hidden">
+    <h2>📋 Grade Scale Reference</h2>
+    <table class="grade-table">
+      <tr>
+        <th>Grade</th>
+        <th>Grade Point</th>
+        <th>Mark Range</th>
+      </tr>
+      <tr>
+        <td>O</td>
+        <td>10</td>
+        <td>90-100</td>
+      </tr>
+      <tr>
+        <td>A+</td>
+        <td>9</td>
+        <td>80-89</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>8</td>
+        <td>70-79</td>
+      </tr>
+      <tr>
+        <td>B+</td>
+        <td>7</td>
+        <td>60-69</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>50-59</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>5</td>
+        <td>40-49</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>4</td>
+        <td>30-39</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>3</td>
+        <td>20-29</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>0</td>
+        <td>0-19</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="historySection" class="card hidden">
+    <h2>📜 Calculation History</h2>
+    <div id="historyList" class="history-list">
+      <p class="empty-msg">No calculations yet</p>
+    </div>
+    <button id="clearHistory" class="danger">Clear History</button>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
